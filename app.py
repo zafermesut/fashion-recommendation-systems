@@ -17,12 +17,6 @@ st.title("Fashion Product Recommender")
 
 selected_image = st.selectbox('Pick an image', filenames)
 
-image_path = os.path.join(selected_image)
-st.write(f"Image path: {image_path}")  
-image = Image.open(image_path)
-st.image(image, caption=selected_image, use_column_width=True)
-
-
 selected_index = filenames.index(selected_image)
 
 distances, indices = model.kneighbors([image_features[selected_index]])
